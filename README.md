@@ -1,9 +1,9 @@
 # Single-Responsibility-Principle
 
 
-Single Responsibility Principle (SRP)?
+Single Responsibility Principle (SRP)
 
-As I understand SRP means, using this principle we should design group of actions together in one class or a module, where it has a responsibility over only one part of the overall functionality.
+As I understand SRP means that we design group of actions together (in one class or a module), where they all have a responsibility over only one part of the overall functionality that we are implementing.
 
 Consider an example of airport functioning.  Planes land and take off from an airport.  Similarly they can land or take off only when weather is good and not stormy.  Now, in this functionality we can see that there are broadly two functions involved.  One to do with planes and other to do with weather.  If we design the above two methods in one class then they will look like
 
@@ -19,7 +19,7 @@ Consider an example of airport functioning.  Planes land and take off from an ai
 
         end
 
-From the above design one can notice that it is failing to follow SRP. The Airport class is responsible for two functions i.e. plane and weather.
+From the above design one can notice that it is failing to follow SRP. In here the Airport class is responsible for two functions i.e. plane and weather.
 
 To follow SRP this class needs to be refactored into two classes so each one has only single responsibility.
 
