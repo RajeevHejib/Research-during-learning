@@ -3,49 +3,60 @@
 
 Encapsulation is a way of hiding certain internal objects and/or methods from outside.  In ruby it can be achieved by defining them in a block as private.  All objects following private then can only be accessed or modified from witin the class but not from outside.
 
-The example below shows that when encapsulation is not used balance in an account be set using set_balance method.
+The example below shows that when encapsulation is not used the methods divisible_by_15 and others are all can be accessed from outside the class.
 
-    class Account
-      attr_reader :balance
+class Game
+  def fizzbuzz(numb)
+    return "fizzbuzz" if divisible_by_15?(numb)
+    return "fizz" if divisible_by_3?(numb)
+    return "buzz" if divisible_by_5?(numb)
+    numb
+  end
 
-      def initialize(balance)
-        @balance = balance
-      end
+  def divisible_by_15?(numb)
+    calc(numb, 15)
+  end
 
-      def check_balance
-        @balance
-      end
+  def divisible_by_3?(numb)
+    calc(numb, 3)
+  end
 
-      def set_balance(balance)
-        @balance = balance
-      end
+  def divisible_by_5?(numb)
+    calc(numb, 5)
+  end
 
-    end
+  def calc(numb, divisor)
+    numb % divisor == 0
+  end
 
-When we use the private ability the code then will look as
+end
+    
+When we make those methods private then they are completely encapsulated.
 
-    class Account
-      attr_reader :balance
+class Game
+  def fizzbuzz(numb)
+    return "fizzbuzz" if divisible_by_15?(numb)
+    return "fizz" if divisible_by_3?(numb)
+    return "buzz" if divisible_by_5?(numb)
+    numb
+  end
 
-      def initialize(balance)
-        @balance = balance
-      end
+  private
+  def divisible_by_15?(numb)
+    calc(numb, 15)
+  end
 
-      def check_balance
-        @balance
-      end
+  def divisible_by_3?(numb)
+    calc(numb, 3)
+  end
 
-      private
-      def set_balance(balance)
-        @balance = balance
-      end
+  def divisible_by_5?(numb)
+    calc(numb, 5)
+  end
 
-    end
+  def calc(numb, divisor)
+    numb % divisor == 0
+  end
 
+end
 
-In the above case when an instance of account is created then access to set_balance is not available from outside.
-
-
- new_account=Account.new(100)
-
- new_account.set_balance(200) # => will fail.
