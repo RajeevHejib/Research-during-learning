@@ -1,4 +1,4 @@
-Encapsulation
+#Encapsulation
 
 
 Encapsulation is a way of hiding certain internal objects and/or methods from outside.  In ruby it can be achieved by defining them in a block as private.  All objects following private then can only be accessed or modified from witin the class but not from outside.
