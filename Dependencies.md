@@ -4,8 +4,8 @@ Dependencies Injection is a way of decoupling the dependency of one class on ano
 
 Consider below example
 
-require_relative 'oyster_card'
-require_relative 'credit_card'
+    require_relative 'oyster_card'
+    require_relative 'credit_card'
 
     class Journey
       def start_journey_with_oyster_card
@@ -18,7 +18,7 @@ require_relative 'credit_card'
     end
 
 The above class is dependent on type of card.  Instead if we de-couple the dependency then it will look like below.
-
+˜
     class Journey
 
       initialize (klass)
